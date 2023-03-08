@@ -5,15 +5,16 @@ services:
     container_name: mysql
     image: mysql
     ports:
-      - "3306:3306"
+      - "3307:3307"
     environment:
-      MYSQL_PASSWORD: innocent
-      MYSQL_ROOT_PASSWORD: innocent
-      MYSQL_USER: user
-      MYSQL_DATABASE: innocent_db
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: Decagon@2022
+      MYSQL_DATABASE: fullstack
+      MYSQL_TCP_PORT: 3307
     restart: always
-    volumes:
-      - mysql_db_data:/var/lib/mysql
+#    volumes:
+#      - mysql_db_data:/var/lib/mysql
 
 ### MySQL Adminer ###
   adminer:
@@ -32,11 +33,11 @@ services:
 
   server:
     container_name: appserver
-    image: fullstack_build
+    image: omenka/fullstack_build
     depends_on:
       - mysql
     environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/innocent_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3307/fullstack?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     ports:
           - "8080:8080"
     restart: always
