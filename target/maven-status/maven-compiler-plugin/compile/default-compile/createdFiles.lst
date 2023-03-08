@@ -1,0 +1,6 @@
+com/inno/fullstack/backend/model/User.class
+com/inno/fullstack/backend/exceptions/UserNotFoundAdvice.class
+com/inno/fullstack/backend/repository/UserRepository.class
+com/inno/fullstack/backend/exceptions/UserNotFoundException.class
+com/inno/fullstack/backend/FullstackBackendApplication.class
+com/inno/fullstack/backend/controller/UserController.class
